@@ -1,0 +1,481 @@
+// Reset and base styles
+html, body, #root {
+  background: #f5f5f5 !important;
+  color: #222 !important;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.01em;
+}
+
+// Sidebar styles
+.sidebar {
+  background: #039be5 !important;
+  color: #fff !important;
+  min-height: 100vh;
+  width: 200px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 16px;
+  position: relative;
+  z-index: 2;
+  border-right: 4px solid #1976d2;
+}
+
+.sidebar .sidebar-title {
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Merriweather', serif;
+  line-height: 1.1;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+.sidebar .sidebar-nav {
+  width: 100%;
+}
+
+.sidebar .sidebar-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: transparent;
+  color: #fff !important;
+  cursor: pointer;
+  border: none;
+  transition: 
+    background 0.18s, 
+    color 0.18s, 
+    box-shadow 0.18s, 
+    transform 0.18s, 
+    border 0.18s;
+  opacity: 0.92;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar .sidebar-btn.active {
+  background: #0277bd !important;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 0 8px 2px #00e67680;
+}
+
+.sidebar .sidebar-btn:hover,
+.sidebar .sidebar-btn:focus-visible {
+  background: #0277bd !important;
+  color: #fff !important;
+  box-shadow: 0 0 18px 4px #00e676cc, 0 0 0 2px #fff3;
+  outline: none;
+  border: 2px solid #43a047;
+  transform: scale(1.04);
+  z-index: 2;
+}
+
+.sidebar .sidebar-btn.danger,
+.sidebar .sidebar-btn.danger:hover {
+  color: #e53935 !important;
+  background: #fff3f3 !important;
+  font-weight: 700;
+  box-shadow: none !important;
+  border: none;
+  transform: none;
+}
+
+// Top bar styles
+.topbar {
+  width: 100%;
+  background: #039be5 !important;
+  color: #fff !important;
+  padding: 24px 32px 18px 32px;
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid #1976d2;
+  box-shadow: 0 2px 8px rgba(3,155,229,0.08);
+  z-index: 1;
+}
+
+.topbar .feature-btn {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 8px 24px;
+  margin-right: 12px;
+  background: #039be5 !important;
+  color: #fff !important;
+  border: 2px solid #039be5;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  outline: none;
+}
+
+.topbar .feature-btn.active {
+  background: #0277bd !important;
+  color: #fff !important;
+  border: 2px solid #0277bd;
+}
+
+.topbar .feature-btn:hover,
+.topbar .feature-btn:focus-visible {
+  background: #43a047 !important;
+  color: #fff !important;
+  border: 2px solid #43a047;
+  box-shadow: 0 0 12px 2px #00e676cc, 0 0 0 2px #fff3;
+  outline: none;
+}
+
+// Main content area
+.main-content {
+  flex: 1;
+  background: #fff;
+  color: #222;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 8px;
+    min-height: unset;
+    position: static;
+    border-right: none;
+    border-bottom: 4px solid #1976d2;
+  }
+  .sidebar .sidebar-title {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+  .main-content {
+    padding: 0;
+  }
+  .topbar {
+    padding: 16px 8px 10px 8px;
+  }
+}
+
+// Paper/card styles
+.MuiPaper-root, .news-card {
+  background: #fff !important;
+  color: #222 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+  border: 1.5px solid #e3f2fd !important;
+  margin-bottom: 24px !important;
+  padding: 24px !important;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.MuiPaper-root:hover, .news-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18) !important;
+  transform: translateY(-2px) scale(1.01);
+}
+
+.MuiPaper-root .MuiTypography-h6 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #039be5;
+}
+
+.MuiPaper-root .MuiTypography-h5 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #039be5;
+}
+
+// Form controls
+.MuiInputBase-root,
+.MuiInputBase-input,
+.MuiOutlinedInput-root,
+.MuiOutlinedInput-input,
+.MuiSelect-select {
+  background: #f7fbff !important;
+  color: #222 !important;
+  border-radius: 6px !important;
+}
+
+.MuiInputLabel-root {
+  color: #039be5 !important;
+  font-weight: 600;
+}
+
+// Action buttons (Add, Save, etc.)
+.MuiButton-root,
+button:not(.sidebar-btn):not(.feature-btn) {
+  background: #039be5 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+
+.MuiButton-root:hover,
+button:not(.sidebar-btn):not(.feature-btn):hover,
+.MuiButton-root:focus-visible,
+button:not(.sidebar-btn):not(.feature-btn):focus-visible {
+  background: #43a047 !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px 2px #00e676cc, 0 0 0 2px #fff3;
+  outline: none;
+}
+
+// Table styles
+.MuiTable-root,
+.MuiTableCell-root {
+  border-color: #e3f2fd !important;
+}
+
+.MuiTableCell-head {
+  background: #e1f5fe !important;
+  color: #039be5 !important;
+  font-weight: 700 !important;
+}
+
+// Dark mode styles
+html.dark, body.dark, #root.dark {
+  background: #181a20 !important;
+  color: #fff !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+// Sidebar and topbar always blue, even in dark mode
+.dark .sidebar {
+  background: #039be5 !important;
+  color: #fff !important;
+  border-right: 4px solid #1976d2;
+}
+
+.dark .topbar {
+  background: #039be5 !important;
+  color: #fff !important;
+  border-bottom: 4px solid #1976d2 !important;
+}
+
+// Sidebar button tweaks for dark mode
+.dark .sidebar .sidebar-btn,
+.dark .sidebar .sidebar-btn.active {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+.dark .sidebar .sidebar-btn.active {
+  background: #0277bd !important;
+  color: #fff !important;
+  box-shadow: 0 0 8px 2px #00e67680;
+}
+
+.dark .sidebar .sidebar-btn:hover,
+.dark .sidebar .sidebar-btn:focus-visible {
+  background: #0277bd !important;
+  color: #fff !important;
+  box-shadow: 0 0 18px 4px #00e676cc, 0 0 0 2px #fff3;
+  outline: none;
+  border: 2px solid #43a047;
+  transform: scale(1.04);
+  z-index: 2;
+}
+
+.dark .sidebar .sidebar-btn.danger,
+.dark .sidebar .sidebar-btn.danger:hover {
+  color: #e53935 !important;
+  background: #fff3f3 !important;
+  font-weight: 700;
+  box-shadow: none !important;
+  border: none;
+  transform: none;
+}
+
+// Topbar feature button tweaks for dark mode
+.dark .topbar .feature-btn {
+  background: #039be5 !important;
+  color: #fff !important;
+  border: 2px solid #039be5 !important;
+}
+
+.dark .topbar .feature-btn.active {
+  background: #0277bd !important;
+  color: #fff !important;
+  border: 2px solid #0277bd !important;
+}
+
+.dark .topbar .feature-btn:hover,
+.dark .topbar .feature-btn:focus-visible {
+  background: #43a047 !important;
+  color: #fff !important;
+  border: 2px solid #43a047 !important;
+  box-shadow: 0 0 12px 2px #00e676cc, 0 0 0 2px #fff3;
+  outline: none;
+}
+
+// Main content and cards in dark mode
+.dark .main-content {
+  background: #181a20 !important;
+  color: #fff !important;
+}
+
+// Make all paper/cards dark in dark mode and remove border/shadow
+.dark .MuiPaper-root,
+.dark .MuiPaper-elevation1,
+.dark .MuiPaper-elevation2,
+.dark .news-card,
+.dark .financial-news-card {
+  background: #181a20 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// Make all boxes and containers dark in dark mode
+.dark .MuiBox-root,
+.dark .box,
+.dark .container,
+.dark .MuiContainer-root {
+  background: #181a20 !important;
+  color: #fff !important;
+}
+
+// Form controls dark
+.dark .MuiInputBase-root,
+.dark .MuiInputBase-input,
+.dark .MuiOutlinedInput-root,
+.dark .MuiOutlinedInput-input,
+.dark .MuiSelect-select,
+.dark .MuiPaper-elevation1,
+.dark input,
+.dark select,
+.dark textarea {
+  background: #23272f !important;
+  color: #fff !important;
+  border-color: #444 !important;
+}
+
+.dark .MuiMenu-paper {
+  background: #23272f !important;
+  color: #fff !important;
+}
+
+.dark .MuiInputLabel-root {
+  color: #90caf9 !important;
+}
+
+.dark .MuiTable-root,
+.dark .MuiTableCell-root {
+  background: #23272f !important;
+  color: #fff !important;
+  border-color: #444 !important;
+}
+
+.dark .MuiTableCell-head {
+  background: #23272f !important;
+  color: #90caf9 !important;
+}
+
+.dark .MuiPaper-root .MuiTypography-h6,
+.dark .MuiPaper-root .MuiTypography-h5 {
+  color: #90caf9 !important;
+}
+
+// Action buttons (Add, Save, etc.) in dark mode
+.dark .MuiButton-root,
+.dark button:not(.sidebar-btn):not(.feature-btn) {
+  background: #039be5 !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+
+.dark .MuiButton-root:hover,
+.dark button:not(.sidebar-btn):not(.feature-btn):hover,
+.dark .MuiButton-root:focus-visible,
+.dark button:not(.sidebar-btn):not(.feature-btn):focus-visible {
+  background: #43a047 !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px 2px #00e676cc, 0 0 0 2px #fff3 !important;
+  outline: none;
+}
+
+// Remove white backgrounds from everywhere in dark mode
+.dark * {
+  box-shadow: none !important;
+}
+
+// --- FINANCIAL NEWS CARDS PATCH ---
+// If your news cards are not using MUI Paper, add a selector for their class or tag.
+.dark .news-card,
+.dark .financial-news-card {
+  background: #181a20 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// Make all news list items and their children white in dark mode (for Dashboard.js news section)
+.dark .MuiPaper-root ul li,
+.dark .financial-news-section li,
+.dark .MuiPaper-root ul li *,
+.dark .financial-news-section li * {
+  background: #181a20 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// If your news cards are plain divs, you can also target them by their parent section:
+.dark .financial-news-section div,
+.dark .financial-news-section article {
+  background: #181a20 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+// If you want all divs inside main-content to be dark in dark mode:
+.dark .main-content div {
+  background: #181a20 !important;
+  color: #fff !important;
+}
+
+// --- Professional Touches ---
+a, .sidebar .sidebar-btn, .MuiButton-root, button {
+  transition: box-shadow 0.18s, background 0.18s, color 0.18s, transform 0.18s;
+}
+
+a:hover, .sidebar .sidebar-btn:hover, .MuiButton-root:hover, button:hover {
+  filter: brightness(1.08);
+  text-decoration: underline;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #1976d2;
+  box-shadow: 0 0 0 2px #90caf9;
+}
+
+footer {
+  text-align: center;
+  padding: 16px 0;
+  color: #555;
+  background: #f5f5f5;
+  font-size: 0.95rem;
+}
+
+.dark footer {
+  color: #bbb;
+  background: #111;
+}
